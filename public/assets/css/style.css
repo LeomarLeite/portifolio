@@ -1,22 +1,63 @@
+/* Reset CSS */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* Removendo list-style para listas */
+ul, ol {
+    list-style: none;
+}
+
+/* Box-sizing border-box */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Reset CSS */
+
+
 body{
     font-family: 'Trebuchet MS', sans-serif;
     background-color: #333;
-    color: #77ffbb;
-    margin: 0;
+    color: #f1f1f1;
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: justify;
+    word-wrap: break-word;
+    word-break:normal;
+    hyphens: auto;
     padding: 0;
     box-sizing: border-box;
-    background-image: url(assets/images/cursor.png) ;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAV0lEQVR4nGP5//8/A6WAhWITaGIIIyOjFNB7zyh2CTkGYfUOqQbhDBNSDMIbsMQaRDB2iDGIqCgmZBBBQ6jiHWIAhiEwm0FegNEkhQmyYqqkE1LA4DEEAIIxMutd5PG3AAAAAElFTkSuQmCC)
 }
 
 header {
-    background-color: #333;
-    padding: 1rem;
+    /* background-color: #333; */
+    /* padding: 1rem; */
     text-align: center;
+    position: fixed;
 }
 
 nav {
-    display: flex;
+    display: block;
+    gap: 1rem;
     justify-content: center;
+    backdrop-filter: blur(12px);
+    background-color: #00000050;
+    border-radius: 3rem;
+    padding: 0.7rem 1.7rem;
+    position: fixed;
+    bottom: 2rem;
+    width: max-content;
+    /* border: #77ffbb4f solid 0.1rem; */
+    left: 50%;
+    transform: translateX(-50%);
+
 }
 
 ul {
@@ -27,20 +68,32 @@ ul {
 }
 
 li {
-    margin-right: 20px;
+    /* margin-right: 20px; */
+    margin: 0.6rem 0.5rem;
 }
 
 a {
     text-decoration: none;
-    color: #77ffbb;
+    color: #f1f1f1;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 0.7rem;
+    text-align: center;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #ff8c00;
+    color: #77ffbb;
 }
+
+.active{
+    color: #77ffbb;
+}
+
+/* .icon{
+    height: auto;
+    width: 25px;
+
+} */
 
 /* Estilos para telas pequenas (dispositivos móveis) */
 @media screen and (max-width: 768px) {
@@ -58,17 +111,104 @@ a:hover {
 /* Estilos para as Seções, Títulos e Parágrafos */
 
 section {
-    padding: 60px 0;
+    padding: 1rem 0 2rem 0;
 }
 
-h1 {
-    color: #ff8c00;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+h2 {
+    color: #77ffbb;
+    font-size: 1.5rem;
+    text-align: center;
+    /* margin-bottom: 20px; */
+}
+
+h3{
+    color: #77ffbb;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+h4{
+    font-size: 1.1rem;
+}
+
+h5{
+    text-align: center;
+    font-size: 1rem;
+}
+
+h6{
+    text-align: center;
+    font-size: 0.7rem;
 }
 
 p {
-    color: #77ffbb;
-    font-size: 1.1rem;
+    color: #f1f1f1;
+    font-size: 1rem;
+    /* font-weight: 200; */
     line-height: 1.6;
+    padding: 0 0 1rem 0;
+}
+
+.container{
+    margin: 50px auto;
+}
+
+.container_sobre{
+    display: grid;
+    gap: 15%;
+    grid-template-columns: 30% 55%;
+}
+
+.sobre{
+    background:linear-gradient(45deg,transparent,#77ffbb,transparent);
+    border-radius: 0.5rem;
+    height: 300px;
+    width: 300px;
+    display: grid;
+    place-items: center;
+}
+
+.sobre_image{
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: 500ms;
+    transform: rotate(7deg);
+}
+img{
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.container_habilidades{
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+}
+
+.experiencia_content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 2rem;
+    margin: 2rem;
+}
+
+.habilidades{
+    padding: 3rem 2rem 1rem 2rem;
+    background-color: #35614b;
+    border-radius: 0.5rem;
+}
+
+.experiencia_detalhe-icon{
+    color: #77ffbb;
+}
+
+.experiencia_detalhe{
+    display: flex;
+    gap: 1rem;
+}
+
+small{
+    font-size: small;
+    
 }
