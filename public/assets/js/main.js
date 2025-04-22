@@ -1,39 +1,56 @@
+/**
+ * Script principal do site
+ */
+document.addEventListener('DOMContentLoaded', function() {
+  // Adicionar classe ativa ao item de menu atual com base na seção visível
+  const sections = document.querySelectorAll('section[id]');
+  const navItems = document.querySelectorAll('header nav ul li a');
   
-// Adicione eventos de clique a todos os itens de menu
-// Função para destacar um item de menu
-function highlightMenu(e) {
-  // Obtenha o elemento de menu que foi clicado (o link <a>)
-  const menuItem = e.target.closest("a");
-
-  if (!menuItem) {
-    // Se o clique não foi diretamente em um link <a>, saia da função
-    return;
+  function highlightActiveSection() {
+      const scrollY = window.pageYOffset;
+      
+      sections.forEach(section => {
+          const sectionHeight = section.offsetHeight;
+          const sectionTop = section.offsetTop - 50;
+          const sectionId = section.getAttribute('id');
+          
+          if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+              navItems.forEach(item => {
+                  item.classList.remove('active');
+                  if (item.getAttribute('href') === `#${sectionId}`) {
+                      item.classList.add('active');
+                  }
+              });
+          }
+      });
   }
-
-  // Remova a classe active de todos os itens de menu
-  const menuItems = document.querySelectorAll(".menu li a");
-  menuItems.forEach(item => item.classList.remove("active"));
-
-  // Adicione a classe active ao item de menu clicado
-  menuItem.classList.add("active");
-}
-
-// Adicione eventos de clique a todos os itens de menu
-const menuItems = document.querySelectorAll(".menu li a");
-menuItems.forEach(item => item.addEventListener("click", highlightMenu));
-
-// Verifica o fragmento da URL ao carregar a página
-document.addEventListener("DOMContentLoaded", () => {
-  const fragment = window.location.hash;
-
-  if (fragment) {
-    // Remove a classe active de todos os itens de menu
-    menuItems.forEach(item => item.classList.remove("active"));
-
-    // Adiciona a classe active ao item de menu correspondente ao fragmento
-    const activeMenuItem = document.querySelector(`.menu li a[href="${fragment}"]`);
-    if (activeMenuItem) {
-      activeMenuItem.classList.add("active");
-    }
+  
+  // Executar ao carregar e ao rolar a página
+  highlightActiveSection();
+  window.addEventListener('scroll', highlightActiveSection);
+  
+  // Rolagem suave para links de âncora
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          
+          if (targetElement) {
+              window.scrollTo({
+                  top: targetElement.offsetTop,
+                  behavior: 'smooth'
+              });
+          }
+      });
+  });
+  
+  // Adicionar evento para o formulário de contato
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+          // O evento já é tratado no componente de contato
+      });
   }
 });

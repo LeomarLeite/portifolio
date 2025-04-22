@@ -1,0 +1,58 @@
+<h5>O que dizem sobre mim</h5>
+<h2>Recomendações</h2>
+<div class="container container_recomendacoes swiper" id="recommendations-container">
+    <div class="swiper-wrapper">
+        <!-- As recomendações serão inseridas aqui dinamicamente -->
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+
+<script>
+    // Função para criar um card de recomendação
+    function createRecommendationCard(recommendation) {
+        return `
+            <article class="recomendacao swiper-slide">
+                <div class="recomendacao_avatar">
+                    <img src="${recommendation.avatar}" alt="${recommendation.name}">
+                </div>
+                <h5>${recommendation.name}</h5>
+                <small>${recommendation.position} em ${recommendation.company}</small>
+                <div class="recomendacao_texto">
+                    <p>${recommendation.text}</p>
+                </div>
+            </article>
+        `;
+    }
+    
+    // Preencher recomendações
+    const recommendationsWrapper = document.querySelector('#recommendations-container .swiper-wrapper');
+    if (recommendationsWrapper && recommendationsData) {
+        recommendationsData.forEach(recommendation => {
+            recommendationsWrapper.innerHTML += createRecommendationCard(recommendation);
+        });
+    }
+    
+    // Inicializar o Swiper para o carrossel de recomendações
+    document.addEventListener('DOMContentLoaded', () => {
+        if (typeof Swiper !== 'undefined') {
+            new Swiper('.container_recomendacoes', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    // quando a largura da janela é >= 600px
+                    600: {
+                        slidesPerView: 2
+                    },
+                    // quando a largura da janela é >= 1024px
+                    1024: {
+                        slidesPerView: 3
+                    }
+                }
+            });
+        }
+    });
+</script>
