@@ -1,0 +1,205 @@
+/* Reset básico para todos os elementos */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Reset específico para elementos que precisam de atenção especial */
+  html {
+    font-size: 62.5%; /* Facilita o uso de rem: 1rem = 10px */
+    scroll-behavior: smooth;
+    height: 100%;
+  }
+  
+  body {
+    font-family: var(--font-primary);
+    font-size: 1.6rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--background);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Reset para elementos específicos que podem causar problemas */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  input, button, textarea, select {
+    font: inherit;
+    outline: none; /* Remove o contorno padrão ao focar */
+  }
+  
+  button {
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+  
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  
+  a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: var(--transition);
+  }
+  
+  a:hover {
+    color: var(--secondary-color);
+  }
+  
+  ul, ol {
+    list-style: none;
+  }
+  
+  section {
+    padding: 80px 0;
+    width: 100%;
+  }
+  
+  main {
+    flex: 1 0 auto; /* Faz o conteúdo principal ocupar o espaço disponível */
+  }
+  
+  footer {
+    flex-shrink: 0; /* Impede que o rodapé encolha */
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Tipografia */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+    color: var(--heading-color, var(--text-color));
+  }
+  
+  h1 {
+    font-size: 3.6rem; /* 36px */
+    margin-top: 0;
+  }
+  
+  h2 {
+    font-size: 3rem;   /* 30px */
+  }
+  
+  h3 {
+    font-size: 2.4rem; /* 24px */
+  }
+  
+  h4 {
+    font-size: 2rem;   /* 20px */
+  }
+  
+  h5 {
+    font-size: 1.8rem; /* 18px */
+  }
+  
+  h6 {
+    font-size: 1.6rem; /* 16px */
+  }
+  
+  p {
+    font-size: 1.6rem;     /* 16px - tamanho base para texto de leitura */
+    line-height: 1.6;      /* Mais espaçado que títulos para melhor legibilidade */
+    margin-bottom: 1.5rem; /* Espaço entre parágrafos */
+    font-weight: 400;      /* Regular, não bold como os títulos */
+  }
+  
+  /* Classes utilitárias para texto */
+  .text-small {
+    font-size: 1.4rem; /* 14px */
+  }
+  
+  .text-large {
+    font-size: 1.8rem; /* 18px */
+  }
+  
+  .lead {
+    font-size: 2rem;   /* 20px */
+    font-weight: 300;  /* Light */
+    line-height: 1.5;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .text-right {
+    text-align: right;
+  }
+  
+  .text-primary {
+    color: var(--primary-color);
+  }
+  
+  .text-secondary {
+    color: var(--secondary-color);
+  }
+  
+  /* Citações */
+  blockquote {
+    font-size: 1.8rem;
+    font-style: italic;
+    padding-left: 1.5rem;
+    border-left: 4px solid var(--primary-color);
+    margin: 2rem 0;
+  }
+  
+  /* Classes de espaçamento */
+  .mt-1 { margin-top: 0.5rem; }
+  .mt-2 { margin-top: 1rem; }
+  .mt-3 { margin-top: 2rem; }
+  .mt-4 { margin-top: 3rem; }
+  .mb-1 { margin-bottom: 0.5rem; }
+  .mb-2 { margin-bottom: 1rem; }
+  .mb-3 { margin-bottom: 2rem; }
+  .mb-4 { margin-bottom: 3rem; }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    html {
+      font-size: 56.25%; /* Reduz para 9px base em telas menores */
+    }
+    
+    h1 {
+      font-size: 3.2rem;
+    }
+    
+    h2 {
+      font-size: 2.6rem;
+    }
+    
+    section {
+      padding: 60px 0;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    html {
+      font-size: 50%; /* Reduz para 8px base em telas muito pequenas */
+    }
+    
+    section {
+      padding: 40px 0;
+    }
+    
+    .container {
+      width: 95%;
+    }
+  }
+  
