@@ -1,0 +1,10 @@
+{
+    "name": "Leomar Leite - Portfólio",
+    "short_name": "Leomar",
+    "theme_color": "#35614B",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "orientation": "portrait",
+    "start_url": "/"
+  }
+  
