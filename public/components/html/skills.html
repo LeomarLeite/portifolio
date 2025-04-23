@@ -138,19 +138,3 @@
         `;
     }
     
-    // Preencher habilidades de frontend
-    const frontendContainer = document.getElementById('frontend-skills');
-    if (frontendContainer && skillsData && skillsData.frontend) {
-        skillsData.frontend.forEach(skill => {
-            frontendContainer.innerHTML += createSkillItem(skill);
-        });
-    }
-    
-    // Preencher habilidades de backend
-    const backendContainer = document.getElementById('backend-skills');
-    if (backendContainer && skillsData && skillsData.backend) {
-        skillsData.backend.forEach(skill => {
-            backendContainer.innerHTML += createSkillItem(skill);
-        });
-    }
-</script>

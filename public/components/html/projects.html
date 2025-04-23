@@ -3,38 +3,3 @@
 <div class="container container_projetos" id="projects-container">
     <!-- Os projetos serão inseridos aqui dinamicamente -->
 </div>
-
-<script>
-    // Função para criar um card de projeto
-    function createProjectCard(project) {
-        // Criar tags de tecnologias
-        const techTags = project.technologies.map(tech => 
-            `<span class="tag">${tech}</span>`
-        ).join('');
-        
-        return `
-            <article class="projeto">
-                <div class="projeto_image">
-                    <img src="${project.image}" alt="${project.title}">
-                </div>
-                <h3>${project.title}</h3>
-                <p>${project.description}</p>
-                <div class="tecnologias">
-                    ${techTags}
-                </div>
-                <div class="projeto_cta">
-                    <a href="${project.github}" class="btn" target="_blank">GitHub</a>
-                    <a href="${project.demo}" class="btn btn-primary" target="_blank">Demo</a>
-                </div>
-            </article>
-        `;
-    }
-    
-    // Preencher projetos
-    const projectsContainer = document.getElementById('projects-container');
-    if (projectsContainer && projectsData) {
-        projectsData.forEach(project => {
-            projectsContainer.innerHTML += createProjectCard(project);
-        });
-    }
-</script>
