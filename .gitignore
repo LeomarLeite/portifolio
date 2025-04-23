@@ -1,0 +1,31 @@
+# Arquivos de configuração de IDE
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.history/
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+*.lnk
+
+# Arquivos temporários
+*.log
+*.tmp
+*.temp
+tmp/
+temp/
+
+# Arquivos específicos do Live Server
+.cache/
+.live-server.json
+
+# Arquivos de backup
+*.bak
+*.backup
+*~
+
+# Arquivos que podem conter informações sensíveis
+*.env
